@@ -17,33 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Tariff cards highlighting
+    // Tariff cards interaction
     const tariffCards = document.querySelectorAll('.tariff-card');
-    
-    // Set the middle card as highlighted by default
-    if (tariffCards.length >= 3) {
-        const middleIndex = Math.floor(tariffCards.length / 2);
-        tariffCards[middleIndex].classList.add('tariff-card--highlighted');
-    } else if (tariffCards.length > 0) {
-        // If fewer than 3 cards, highlight the first one
-        tariffCards[0].classList.add('tariff-card--highlighted');
-    }
     
     // Add hover effect
     tariffCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            // Remove active class from all cards first
-            tariffCards.forEach(c => {
-                c.classList.remove('tariff-card--active');
-            });
-            
-            // Add active class to current card
-            this.classList.add('tariff-card--active');
+            // Add hover animation or styling if needed
+            this.style.transform = 'translateY(-10px)';
         });
         
         card.addEventListener('mouseleave', function() {
-            // Remove active class when mouse leaves
-            this.classList.remove('tariff-card--active');
+            // Remove hover styling
+            if (!this.classList.contains('tariff-card--highlighted')) {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'translateY(0)';
+            }
         });
     });
 
